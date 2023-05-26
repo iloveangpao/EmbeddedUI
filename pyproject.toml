@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "gtdev"
+version = "0.1.0"
+description = ""
+authors = ["Yan Rui Lim <YanRui.Lim@silabs.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+PyQt6 = "^6.5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
