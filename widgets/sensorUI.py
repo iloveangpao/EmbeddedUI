@@ -101,7 +101,6 @@ class SensorUI(QWidget):
         self.collect_button.setEnabled(False)
         self.data_window = DataWindow()
         self.data_window.show()
-
         QTimer.singleShot(1000, self.collect_reading)
 
     def collect_reading(self):
