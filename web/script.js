@@ -12,12 +12,12 @@ socket.onmessage = function (event) {
         // Handle sensor data message
         var humidityThresholdElement = document.getElementById("humidity_threshold");
         var temperatureThresholdElement = document.getElementById("temperature_threshold");
-        humidityThreshold = humidityThresholdElement.textContent;
-        temperatureThreshold = humidityThresholdElement.textContent;
+        humidityThreshold = humidityThresholdElement.value;
+        temperatureThreshold = temperatureThresholdElement.value;
         var humidity = message.humidity;
         var temperature = message.temperature;
         if(consecToggle) {
-            console.log(consecToggle)
+            console.log(humidityThreshold)
             consecText += "Humidity: " + humidity + " " +
                                     "Temperature: " + temperature + "<br>"
             var consecElement = document.getElementById("consecutive_readings");
@@ -25,15 +25,15 @@ socket.onmessage = function (event) {
             consecToggle = false;
             
         }else {
-            console.log(consecToggle)
+            console.log(humidityThreshold)
             var dataElement = document.getElementById("data");
             dataElement.innerHTML = "Humidity: " + humidity + " " +
                                     "Temperature: " + temperature;
             consecToggle = true;
         }
         if (
-            ( humidityThreshold !== "" ||
-            temperatureThreshold !== "" ) && (
+            ( humidityThreshold != "" ||
+            temperatureThreshold != "" ) && (
             humidity > humidityThreshold ||
             temperature > temperatureThreshold )
         ) {
